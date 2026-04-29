@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" client="site" method="upgrade">
+	<name>MOD_VP_ACCORDION</name>
+	<author>Volodymyr Pershyn</author>
+	<creationDate>2026-04-30</creationDate>
+	<copyright>Copyright (C) 2024 - 2026 VPJoomla. All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail>support@vpjoomla.com</authorEmail>
+	<authorUrl>https://vpjoomla.com</authorUrl>
+	<version>3.0.1</version>
+	<description>MOD_VP_ACCORDION_XML_DESCRIPTION</description>
+
+	<namespace path="src">VPJoomla\Module\Vpaccordion</namespace>
+
+	<files>
+		<folder module="mod_vp_accordion">services</folder>
+		<folder>src</folder>
+		<folder>tmpl</folder>
+		<filename>LICENSE.txt</filename>
+		<filename>README.md</filename>
+	</files>
+
+	<languages folder="language">
+		<language tag="en-GB">en-GB/mod_vp_accordion.ini</language>
+		<language tag="en-GB">en-GB/mod_vp_accordion.sys.ini</language>
+		<language tag="ru-RU">ru-RU/mod_vp_accordion.ini</language>
+		<language tag="ru-RU">ru-RU/mod_vp_accordion.sys.ini</language>
+	</languages>
+
+	<config>
+		<fields name="params">
+
+			<fieldset name="basic" label="MOD_VP_ACCORDION_FIELDSET_ITEMS">
+
+				<field
+					name="accordion"
+					type="subform"
+					label="MOD_VP_ACCORDION_FIELD_ITEMS_LABEL"
+					description="MOD_VP_ACCORDION_FIELD_ITEMS_DESC"
+					multiple="true"
+					min="1"
+					layout="joomla.form.field.subform.repeatable-table"
+				>
+					<form>
+						<field
+							name="title"
+							type="text"
+							label="MOD_VP_ACCORDION_FIELD_TITLE_LABEL"
+							description="MOD_VP_ACCORDION_FIELD_TITLE_DESC"
+							required="true"
+							size="40"
+							filter="string"
+						/>
+
+						<field
+							name="text"
+							type="editor"
+							label="MOD_VP_ACCORDION_FIELD_TEXT_LABEL"
+							description="MOD_VP_ACCORDION_FIELD_TEXT_DESC"
+							buttons="true"
+							filter="safehtml"
+						/>
+
+						<field
+							name="open"
+							type="radio"
+							layout="joomla.form.field.radio.switcher"
+							label="MOD_VP_ACCORDION_FIELD_OPEN_LABEL"
+							description="MOD_VP_ACCORDION_FIELD_OPEN_DESC"
+							default="0"
+							filter="integer"
+						>
+							<option value="0">JNO</option>
+							<option value="1">JYES</option>
+						</field>
+					</form>
+				</field>
+
+			</fieldset>
+
+			<fieldset name="display" label="MOD_VP_ACCORDION_FIELDSET_DISPLAY">
+
+				<field
+					name="style"
+					type="list"
+					label="MOD_VP_ACCORDION_FIELD_STYLE_LABEL"
+					description="MOD_VP_ACCORDION_FIELD_STYLE_DESC"
+					default="default"
+					filter="cmd"
+					validate="options"
+				>
+					<option value="default">MOD_VP_ACCORDION_STYLE_DEFAULT</option>
+					<option value="flush">MOD_VP_ACCORDION_STYLE_FLUSH</option>
+				</field>
+
+				<field
+					name="always_open"
+					type="radio"
+					layout="joomla.form.field.radio.switcher"
+					label="MOD_VP_ACCORDION_FIELD_ALWAYS_OPEN_LABEL"
+					description="MOD_VP_ACCORDION_FIELD_ALWAYS_OPEN_DESC"
+					default="0"
+					filter="integer"
+				>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+
+				<field
+					name="heading_level"
+					type="list"
+					label="MOD_VP_ACCORDION_FIELD_HEADING_LEVEL_LABEL"
+					description="MOD_VP_ACCORDION_FIELD_HEADING_LEVEL_DESC"
+					default="h2"
+					filter="cmd"
+					validate="options"
+				>
+					<option value="h2">H2</option>
+					<option value="h3">H3</option>
+					<option value="h4">H4</option>
+					<option value="h5">H5</option>
+					<option value="h6">H6</option>
+				</field>
+
+				<field
+					name="prepare_content"
+					type="radio"
+					layout="joomla.form.field.radio.switcher"
+					label="MOD_VP_ACCORDION_FIELD_PREPARE_CONTENT_LABEL"
+					description="MOD_VP_ACCORDION_FIELD_PREPARE_CONTENT_DESC"
+					default="1"
+					filter="integer"
+				>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+
+			</fieldset>
+
+			<fieldset name="assets" label="MOD_VP_ACCORDION_FIELDSET_ASSETS">
+
+				<field
+					name="load_bootstrap_js"
+					type="radio"
+					layout="joomla.form.field.radio.switcher"
+					label="MOD_VP_ACCORDION_FIELD_LOAD_BOOTSTRAP_JS_LABEL"
+					description="MOD_VP_ACCORDION_FIELD_LOAD_BOOTSTRAP_JS_DESC"
+					default="1"
+					filter="integer"
+				>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+
+				<field
+					name="load_bootstrap_css"
+					type="radio"
+					layout="joomla.form.field.radio.switcher"
+					label="MOD_VP_ACCORDION_FIELD_LOAD_BOOTSTRAP_CSS_LABEL"
+					description="MOD_VP_ACCORDION_FIELD_LOAD_BOOTSTRAP_CSS_DESC"
+					default="0"
+					filter="integer"
+				>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+
+			</fieldset>
+
+			<fieldset name="advanced">
+
+				<field
+					name="layout"
+					type="modulelayout"
+					label="JFIELD_ALT_LAYOUT_LABEL"
+					class="form-select"
+					validate="moduleLayout"
+				/>
+
+				<field
+					name="moduleclass_sfx"
+					type="textarea"
+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+					rows="3"
+					validate="CssIdentifier"
+				/>
+
+				<field
+					name="cache"
+					type="list"
+					default="1"
+					filter="integer"
+					validate="options"
+					label="COM_MODULES_FIELD_CACHING_LABEL"
+				>
+					<option value="1">JGLOBAL_USE_GLOBAL</option>
+					<option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+				</field>
+
+				<field
+					name="cache_time"
+					type="number"
+					default="900"
+					filter="integer"
+					label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+				/>
+			</fieldset>
+		</fields>
+	</config>
+
+	<changelogurl>https://vpjoomla.com/updates/vp-accordion/changelog.xml</changelogurl>
+
+	<updateservers>
+		<server type="extension" name="VP Accordion">https://vpjoomla.com/updates/vp-accordion/update.xml</server>
+	</updateservers>
+</extension>
