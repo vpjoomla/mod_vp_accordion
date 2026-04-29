@@ -39,7 +39,7 @@
 					description="MOD_VP_ACCORDION_FIELD_ITEMS_DESC"
 					multiple="true"
 					min="1"
-					layout="joomla.form.field.subform.repeatable-table"
+					layout="joomla.form.field.subform.repeatable"
 				>
 					<form>
 						<field
