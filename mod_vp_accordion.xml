@@ -87,7 +87,6 @@
 					description="MOD_VP_ACCORDION_FIELD_STYLE_DESC"
 					default="default"
 					filter="cmd"
-					validate="options"
 				>
 					<option value="default">MOD_VP_ACCORDION_STYLE_DEFAULT</option>
 					<option value="flush">MOD_VP_ACCORDION_STYLE_FLUSH</option>
@@ -113,7 +112,6 @@
 					description="MOD_VP_ACCORDION_FIELD_HEADING_LEVEL_DESC"
 					default="h2"
 					filter="cmd"
-					validate="options"
 				>
 					<option value="h2">H2</option>
 					<option value="h3">H3</option>
