@@ -25,8 +25,7 @@ pricing details and any content that benefits from being collapsed by default.
 
 ## Installation
 
-1. Download the latest release ZIP from
-   https://vpjoomla.com/extensions/free/vp-accordion
+1. Download the latest release ZIP from https://vpjoomla.com/extensions/frontend/vp-accordion
 2. In the Joomla administrator, go to **System → Install → Extensions**
 3. Drop the ZIP onto the upload area
 4. Go to **Content → Site Modules**, create a new instance of "VP Accordion",
